@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/flask-ckeditor.iml" filepath="$PROJECT_DIR$/.idea/flask-ckeditor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../flask-ckeditor1/.idea/flask-ckeditor1.iml" filepath="$PROJECT_DIR$/../flask-ckeditor1/.idea/flask-ckeditor1.iml" />
     </modules>
   </component>
 </project>

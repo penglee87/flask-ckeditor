@@ -6,10 +6,21 @@ import json
 import random
 import urllib
 import datetime
+from flask_script import Manager, Shell
+from flask_wtf import Form
+from wtforms import StringField, SubmitField
+from wtforms.validators import Required
 
 from flask import Flask, request, render_template, url_for, make_response
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'hard to guess string'
+
+class PostForm(Form):
+    title = StringField("The title", validators=[Required()])
+    summary = StringField("The summary", validators=[Required()])
+    submit = SubmitField('Submit')
+    cancel = SubmitField('Cancel')
 
 
 def gen_rnd_filename():
@@ -17,8 +28,16 @@ def gen_rnd_filename():
     return '%s%s' % (filename_prefix, str(random.randrange(1000, 10000)))
 
 
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
 def index():
+    if request.method == 'POST':
+        content = request.form.get('content')
+        print('content',content)
+        return '''
+    <!doctype html>
+    <h1>Upload new File</h1>
+    '''
+
     return render_template('index.html')
 
 

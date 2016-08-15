@@ -7,14 +7,23 @@
 </head>
 <body>
 <div>
-    <h1>完整demo</h1>
-    <textarea id="content" class="ckeditor"></textarea>
+    <h1 id="p1"> 完整demo</h1>
+
+    <form method="POST">
+    <textarea name="content" class="ckeditor"></textarea>
+    <input type="button" value="保存" id="save" />
+
+    </form>
 </div>
 
 <script type="text/javascript">
 CKEDITOR.replace('content', {
 	filebrowserUploadUrl: '/ckupload/',
 });
+
+var text=CKEDITOR.instances.content.getData();
+document.getElementById("p1").innerHTML=text;
 </script>
+
 </body>
 </html>
